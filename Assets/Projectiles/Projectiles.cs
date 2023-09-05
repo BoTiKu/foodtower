@@ -5,6 +5,7 @@ namespace TowerDefense
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class Projectiles : MonoBehaviour
     {
+        [SerializeField]
         protected SpriteRenderer _spriteRenderer;
         protected Animal _target;
 
@@ -19,7 +20,6 @@ namespace TowerDefense
 
         private void Start () 
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
             _movementSystem.IsActive = true;
         }
 

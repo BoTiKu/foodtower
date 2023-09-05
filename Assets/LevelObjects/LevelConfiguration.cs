@@ -22,5 +22,7 @@ namespace TowerDefense
     public class LevelConfiguration : ScriptableObject
     {
         public List<RoundConfiguration> Rounds;
+        public int Lifes;
+        public int StartCountMoney;
     }
 }

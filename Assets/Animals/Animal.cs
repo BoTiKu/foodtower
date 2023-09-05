@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Events;
 
 namespace TowerDefense
 {
@@ -22,6 +23,10 @@ namespace TowerDefense
         [SerializeField]
         protected int _currentFood;
         [SerializeField]
+        protected int _hasMoney;
+        [SerializeField]
+        protected int _stealLife;
+        [SerializeField]
         protected List<FoodMultiplier> _foodsMultiplier;
 
         [SerializeField]
@@ -38,6 +43,10 @@ namespace TowerDefense
         }
         public bool IsFedUp => _currentFood >= _maxFood;
         public bool FullFed => _currentFood + _projectiles.Sum(x => CalculateTakeFood(x as FoodProjectiles)) >= _maxFood;
+        public int GivedMoney => _hasMoney;
+        public int StealedLifes => _stealLife;
+
+        public UnityAction<Animal> OnContactFinishZone;
 
         public void SetMovementPoints(params TargetPoint[] targets)
         {
@@ -74,6 +83,14 @@ namespace TowerDefense
                 return;
 
             _movementSystem.IsTurbo = true;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out FinishZone finish))
+            {
+                OnContactFinishZone.Invoke(this);
+            }
         }
     }
 }

@@ -1,7 +1,10 @@
+using UnityEngine;
+
 namespace TowerDefense
 {
     public class FoodTower : AttackTower<FoodProjectiles>
     {
+        [SerializeField]
         protected FoodTypes _foodType;
 
         public override TowerTypes Type => TowerTypes.Food;

@@ -16,12 +16,22 @@ namespace TowerDefense
 
         private Coroutine _spawnMobsCoroutine;
 
+        private List<Animal> _spawnedMobs;
         private RoundConfiguration _currentRound;
         private int _currentIndexRound;
 
+        public int CurrentLifes { get; private set; }
+        public int MaxLifes => _levelConfiguration.Lifes;
+        public int Money { get; private set; }
+        public int CurrentRound => _currentIndexRound + 1;
+        public int MaxRound => _levelConfiguration.Rounds.Count;
+
         private void Start()
         {
+            Money = _levelConfiguration.StartCountMoney;
+            _spawnedMobs = new();
             _currentIndexRound = 0;
+            CurrentLifes = MaxLifes;
             StartRound();
         }
 
@@ -34,26 +44,75 @@ namespace TowerDefense
         private void SpawMob(Animal prefab)
         {
             Animal mob = Instantiate(prefab);
+            mob.OnContactFinishZone += OnFinishMob;
             mob.transform.position = _spawnerMob.position;
             mob.SetMovementPoints(_movementPointsTargets.ToArray());
+            _spawnedMobs.Add(mob);
+        }
+
+        private void OnFinishMob(Animal mob)
+        {
+            if (!mob.IsFedUp)
+            {
+                CurrentLifes -= mob.StealedLifes;
+                if (CurrentLifes == 0)
+                {
+                    GameOver();
+                }
+                return;
+            }
+
+            Money += mob.GivedMoney;
+            _spawnedMobs.Remove(mob);
+            Destroy(mob.gameObject);
+            NextRount();
+        }
+
+        private void NextRount()
+        {
+            if (_spawnedMobs.Count > 0)
+                return;
+
+            _currentIndexRound++;
+            if(_currentIndexRound >= MaxRound)
+            {
+                WinGame();
+                return;
+            }
+
+            StartRound();
+        }
+
+        private void GameOver()
+        {
+            _spawnedMobs.RemoveAll(mob => mob == null);
+            for (int i = 0; i < _spawnedMobs.Count; i++)
+                Destroy(_spawnedMobs[i].gameObject);
+
+            ModelWindow.Instance.Show("Вы проиграли", "Начать занаво", () => { ModelWindow.Instance.Close(); Start(); });
+        }
+
+        private void WinGame()
+        {
+            ModelWindow.Instance.Show("Вы выиграли!", "Начать занаво", () => { ModelWindow.Instance.Close(); Start(); });
         }
 
         private IEnumerator SpawnMobs()
         {
             var totalSpawn = _currentRound.MobContainers.Sum(container => container.Count);
             var currentContainerIndex = 0;
+            MobContainer currentContainer = _currentRound.MobContainers[currentContainerIndex];
             for (int countSpawns = 0; countSpawns < totalSpawn; countSpawns++)
             {
-                var currentContainer = _currentRound.MobContainers[currentContainerIndex];
                 SpawMob(currentContainer.AnimalPrefab);
-                yield return new WaitForSeconds(currentContainer.DelaySpawnMob);
-
-                if(countSpawns == currentContainer.Count)
+                if (countSpawns == currentContainer.Count - 1 && currentContainerIndex + 1 < _currentRound.MobContainers.Count)
                 {
                     currentContainerIndex++;
                     totalSpawn -= currentContainer.Count;
-                    countSpawns = 0;
+                    countSpawns = -1;
+                    currentContainer = _currentRound.MobContainers[currentContainerIndex];
                 }
+                yield return new WaitForSeconds(currentContainer.DelaySpawnMob);
             }
         }
     }

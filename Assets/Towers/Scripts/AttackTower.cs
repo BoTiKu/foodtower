@@ -10,6 +10,9 @@ namespace TowerDefense
         [SerializeField]
         protected T _projectilesPrefab;
 
+        [SerializeField]
+        protected Sprite _projectileSprite;
+
         [Header("Параметры атаки")]
         [SerializeField]
         protected float _speedAttack;
@@ -64,6 +67,7 @@ namespace TowerDefense
         {
             var projectiles = Instantiate(_projectilesPrefab);
             projectiles.transform.position = transform.position;
+            projectiles.Icon = _projectileSprite;
             return projectiles;
         }
     }

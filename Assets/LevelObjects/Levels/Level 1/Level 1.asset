@@ -15,5 +15,14 @@ MonoBehaviour:
   Rounds:
   - MobContainers:
     - AnimalPrefab: {fileID: 1831105347, guid: 56732ae64525b4044844dd1b2b645010, type: 3}
+      DelaySpawnMob: 2
+      Count: 5
+  - MobContainers:
+    - AnimalPrefab: {fileID: 1831105347, guid: 56732ae64525b4044844dd1b2b645010, type: 3}
       DelaySpawnMob: 1
-      Count: 10
+      Count: 5
+    - AnimalPrefab: {fileID: 1831105347, guid: fea523497f8cfc54694904557a4cd625, type: 3}
+      DelaySpawnMob: 4
+      Count: 2
+  Lifes: 20
+  StartCountMoney: 250
