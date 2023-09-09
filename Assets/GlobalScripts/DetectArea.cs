@@ -18,8 +18,8 @@ namespace TowerDefense
             if (_animals.Count < 1 || _animals.All(animal => animal.IsFedUp))
                 return false;
 
-            animal = _animals.First(animal => !animal.IsFedUp && !animal.FullFed);
-            return true;
+            animal = _animals.FirstOrDefault(animal => !animal.IsFedUp && !animal.FullFed);
+            return animal != null;
         }
 
         public bool CheckAnimalInArea(Animal animal) => _animals.Contains(animal);

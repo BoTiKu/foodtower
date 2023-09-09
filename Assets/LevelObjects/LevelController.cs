@@ -26,6 +26,15 @@ namespace TowerDefense
         public int CurrentRound => _currentIndexRound + 1;
         public int MaxRound => _levelConfiguration.Rounds.Count;
 
+        public bool WithdrawMoney(int money)
+        {
+            if (Money - money < 0)
+                return false;
+
+            Money -= money;
+            return true;
+        }
+
         private void Start()
         {
             Money = _levelConfiguration.StartCountMoney;
