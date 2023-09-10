@@ -18,6 +18,7 @@ namespace TowerDefense
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            AudioController.Instance.PlayClick();
             if (!StoreController.Instance.CanBuyItem(_data))
             {
                 ModelWindow.Instance.Show($"У вас недостаточно денег.\nНеобходимо: {_data.Cost}", "Окей", ModelWindow.Instance.Close);

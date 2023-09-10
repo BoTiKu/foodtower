@@ -48,11 +48,15 @@ namespace TowerDefense
 
         public void MouseUp()
         {
-            if(CanBuild)
-            {
+            if (CanBuild)
+            { 
+                AudioController.Instance.PlaySuccess();
                 Instantiate(_data.TowerPrefab, CurrentPosition, Quaternion.identity);
                 LevelController.Instance.WithdrawMoney(_data.Cost);
             }
+            else
+                AudioController.Instance.PlayFailed();
+
             Destroy(gameObject);
         }
 

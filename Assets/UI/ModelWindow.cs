@@ -20,6 +20,7 @@ namespace TowerDefense
         {
             _okeyButton.onClick.RemoveAllListeners();
             _okeyButton.onClick.AddListener(onClickOkeyButton);
+            _okeyButton.onClick.AddListener(() => AudioController.Instance.PlayClick());
 
             _text.text = info;
             _buttonLabel.text = buttonLabel;

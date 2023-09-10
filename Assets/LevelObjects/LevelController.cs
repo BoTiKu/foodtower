@@ -14,6 +14,13 @@ namespace TowerDefense
         [SerializeField]
         private Transform _spawnerMob;
 
+        [SerializeField]
+        private AudioClip _music;
+        [SerializeField]
+        private AudioClip _winSound;
+        [SerializeField]
+        private AudioClip _loseSound;
+
         private Coroutine _spawnMobsCoroutine;
 
         private List<Animal> _spawnedMobs;
@@ -37,6 +44,7 @@ namespace TowerDefense
 
         private void Start()
         {
+            AudioController.Instance.SetMusic(_music);
             Money = _levelConfiguration.StartCountMoney;
             _spawnedMobs = new();
             _currentIndexRound = 0;
@@ -69,8 +77,9 @@ namespace TowerDefense
             if (!mob.IsFedUp)
             {
                 CurrentLifes -= mob.StealedLifes;
-                if (CurrentLifes == 0)
+                if (CurrentLifes <= 0)
                 {
+                    CurrentLifes = 0;
                     GameOver();
                 }
                 return;
@@ -99,6 +108,8 @@ namespace TowerDefense
 
         private void GameOver()
         {
+            AudioController.Instance.PlaySound(_loseSound);
+
             _spawnedMobs.RemoveAll(mob => mob == null);
             for (int i = 0; i < _spawnedMobs.Count; i++)
                 Destroy(_spawnedMobs[i].gameObject);
@@ -108,6 +119,7 @@ namespace TowerDefense
 
         private void WinGame()
         {
+            AudioController.Instance.PlaySound(_winSound);
             ModelWindow.Instance.Show("Вы выиграли!", "Начать занаво", () => { ModelWindow.Instance.Close(); Start(); });
         }
 

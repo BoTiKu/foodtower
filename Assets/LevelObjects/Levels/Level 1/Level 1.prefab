@@ -3793,6 +3793,9 @@ MonoBehaviour:
   - {fileID: 1358282018501067408}
   _levelConfiguration: {fileID: 11400000, guid: f9ca749fd97931d49a6bd079d90929f8, type: 2}
   _spawnerMob: {fileID: 246458885793485462}
+  _music: {fileID: 8300000, guid: 028eabf585984ab42ac1b5adae43efc1, type: 3}
+  _winSound: {fileID: 8300000, guid: 9141b12dff20b0f4eb3e422d85848fdf, type: 3}
+  _loseSound: {fileID: 8300000, guid: d6eb9d6e87e13e646900369c32679aa6, type: 3}
 --- !u!1 &246458887830471540
 GameObject:
   m_ObjectHideFlags: 0
