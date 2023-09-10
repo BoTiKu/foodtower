@@ -41,6 +41,11 @@ namespace TowerDefense
             _spawnedMobs = new();
             _currentIndexRound = 0;
             CurrentLifes = MaxLifes;
+
+            var towers = FindObjectsOfType<Tower>();
+            for (int i = 0; i < towers.Length; i++)
+                Destroy(towers[i].gameObject);
+
             StartRound();
         }
 

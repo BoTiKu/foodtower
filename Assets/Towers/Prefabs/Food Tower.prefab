@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 990964776}
   - component: {fileID: 990964777}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: Food Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   _projectilesPrefab: {fileID: 2957390904544103710, guid: 72872d3062c128b4ca873a0cff26f09b, type: 3}
   _projectileSprite: {fileID: 0}
   _speedAttack: 1
-  _damage: 2
+  _damage: 1
   _projectilesPerShot: 1
   _foodType: 0
 --- !u!50 &990964777

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &381128815838744957
+--- !u!1001 &524843863222508410
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,32 +8,72 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 990964776, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
-      propertyPath: _damage
-      value: 1
+      propertyPath: _foodType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 990964776, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: _towerSprite
       value: 
-      objectReference: {fileID: 21300000, guid: d16d326b893491d4e92e6d0302620572, type: 3}
+      objectReference: {fileID: 21300000, guid: 5ff7dd90e92cdf644abcf2f5612fbb74, type: 3}
     - target: {fileID: 990964776, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: _projectileSprite
       value: 
-      objectReference: {fileID: 21300000, guid: ca24d6678c358c544b018781b4af3124, type: 3}
+      objectReference: {fileID: 21300000, guid: 5ff7dd90e92cdf644abcf2f5612fbb74, type: 3}
+    - target: {fileID: 2259142879870996798, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769560, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ff7dd90e92cdf644abcf2f5612fbb74, type: 3}
     - target: {fileID: 2259142880471769561, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: m_Name
-      value: Food Tower Carrot
+      value: Food Tower CombiFeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769562, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_Size.x
+      value: 10.26475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769562, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_Size.y
+      value: 6.026178
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769562, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.000004529953
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769562, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.05592227
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769562, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 10.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769562, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2259142880471769563, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2259142880471769563, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17912
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769563, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.26618
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259142880471769563, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.34
+      value: -14.313
       objectReference: {fileID: 0}
     - target: {fileID: 2259142880471769563, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.64
+      value: 1.6425
       objectReference: {fileID: 0}
     - target: {fileID: 2259142880471769563, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: m_LocalPosition.z

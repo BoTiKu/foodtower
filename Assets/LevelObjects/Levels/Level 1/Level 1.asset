@@ -24,5 +24,28 @@ MonoBehaviour:
     - AnimalPrefab: {fileID: 1831105347, guid: fea523497f8cfc54694904557a4cd625, type: 3}
       DelaySpawnMob: 4
       Count: 2
+  - MobContainers:
+    - AnimalPrefab: {fileID: 1831105347, guid: 56732ae64525b4044844dd1b2b645010, type: 3}
+      DelaySpawnMob: 1.5
+      Count: 10
+    - AnimalPrefab: {fileID: 1831105347, guid: fea523497f8cfc54694904557a4cd625, type: 3}
+      DelaySpawnMob: 4
+      Count: 1
+    - AnimalPrefab: {fileID: 2323874666807966552, guid: 317aaa35750eef040a9a85b2ed49504e, type: 3}
+      DelaySpawnMob: 4
+      Count: 2
+  - MobContainers:
+    - AnimalPrefab: {fileID: 2323874666807966552, guid: 317aaa35750eef040a9a85b2ed49504e, type: 3}
+      DelaySpawnMob: 1
+      Count: 1
+    - AnimalPrefab: {fileID: 7890010013055479110, guid: 245aa5c7a9ff8fe4e9231b85f775cb5f, type: 3}
+      DelaySpawnMob: 1
+      Count: 5
+    - AnimalPrefab: {fileID: 1831105347, guid: 56732ae64525b4044844dd1b2b645010, type: 3}
+      DelaySpawnMob: 1
+      Count: 5
+    - AnimalPrefab: {fileID: 2323874666807966552, guid: 317aaa35750eef040a9a85b2ed49504e, type: 3}
+      DelaySpawnMob: 0.5
+      Count: 1
   Lifes: 20
   StartCountMoney: 250

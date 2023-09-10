@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using System;
 
 namespace TowerDefense
 {
