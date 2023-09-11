@@ -69,7 +69,7 @@ namespace TowerDefense
             var length = _sounds.Count;
             _sounds.RemoveAll(sound => sound == null);
             var needDestroy = _sounds.Where(sound => !sound.isPlaying).Select(obj => obj.gameObject).ToList();
-            for (int i = 0; i < needDestroy.Count(); i++)
+            for (int i = 0; i < needDestroy.Count; i++)
             {
                     Destroy(needDestroy[i]);
             }

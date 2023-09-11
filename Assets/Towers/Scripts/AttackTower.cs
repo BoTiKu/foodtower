@@ -22,7 +22,7 @@ namespace TowerDefense
         protected int _projectilesPerShot = 1;
 
         protected bool CanShoot { get; set; } = true;
-        protected Animal _target; 
+        protected Animal _target;
 
         public AttckTypes AttckType => _attackType;
         public int Damage => _damage; 

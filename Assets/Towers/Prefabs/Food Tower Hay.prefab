@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: _projectileSprite
       value: 
       objectReference: {fileID: 21300000, guid: 673560c94764ad84f966776c24c4c1f7, type: 3}
+    - target: {fileID: 990964776, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
+      propertyPath: _upgradeConfiguration
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a133b03d8fb71c4ab1f82bac418b890, type: 2}
     - target: {fileID: 2259142879870996798, guid: 14e481256ffa63d4aa1aae58b2b3f0c5, type: 3}
       propertyPath: m_Radius
       value: 45

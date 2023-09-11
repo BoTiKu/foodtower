@@ -7,10 +7,15 @@ namespace TowerDefense
 {
     public class DetectArea : MonoBehaviour
     {
+        [SerializeField]
+        private CircleCollider2D _collider;
+
         private List<Tower> _towers = new();
         private List<Animal> _animals = new();
 
         public event Action<Animal> OnEnterFirstAnimal; 
+
+        public float Radius { get => _collider.radius; set => _collider.radius = value; }
 
         public bool GetFirstAnimal(out Animal animal)
         {

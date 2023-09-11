@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace TowerDefense
 {
-    public abstract class Tower : MonoBehaviour
+    public abstract class Tower : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField]
         protected Sprite _towerSprite;
@@ -11,6 +12,8 @@ namespace TowerDefense
         protected SpriteRenderer _spriteRenderer;
 
         public abstract TowerTypes Type { get; }
+
+        public abstract void OnPointerClick(PointerEventData eventData);
 
         protected void Awake()
         {

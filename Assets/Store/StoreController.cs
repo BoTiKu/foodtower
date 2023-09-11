@@ -30,6 +30,18 @@ namespace TowerDefense
         public void OnClickChangeActiveStore()
         {
             _panel.SetActive(!IsShowing);
+            TowerUpgradeController.Instance.CloseWindow();
+            SetUpButton();
+        }
+
+        public void CloseWindow()
+        {
+            _panel.SetActive(false);
+            SetUpButton();
+        }
+
+        protected void SetUpButton()
+        {
             _buttonTitle.text = IsShowing ? CLOSE_STORE_TEXT : SHOW_STORE_TEXT;
         }
 
