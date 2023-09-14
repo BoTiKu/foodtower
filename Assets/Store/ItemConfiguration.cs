@@ -4,7 +4,7 @@ namespace TowerDefense
 {
     public enum StoreItemTypes
     {
-        Towrer
+        Towrer, Effects
     }
 
     public abstract class ItemConfiguration : ScriptableObject

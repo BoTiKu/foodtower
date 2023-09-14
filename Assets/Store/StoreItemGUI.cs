@@ -27,6 +27,9 @@ namespace TowerDefense
 
             if(_data.Type == StoreItemTypes.Towrer)
                 StoreController.Instance.CreateDummyTower(_data as TowerItemConfiguration);
+
+            if (_data.Type == StoreItemTypes.Effects)
+                (_data as EffectsItemConfigurate)?.Execute();
         }
 
         public void SetData(ItemConfiguration data)

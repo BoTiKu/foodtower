@@ -29,9 +29,11 @@ namespace TowerDefense
 
         public int CurrentLifes { get; private set; }
         public int MaxLifes => _levelConfiguration.Lifes;
+        [field: SerializeField]
         public int Money { get; private set; }
         public int CurrentRound => _currentIndexRound + 1;
         public int MaxRound => _levelConfiguration.Rounds.Count;
+        public IReadOnlyList<Animal> Mobs => _spawnedMobs;
 
         public bool WithdrawMoney(int money)
         {

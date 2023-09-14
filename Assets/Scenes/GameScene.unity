@@ -2206,6 +2206,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 452ea714f8ee760499975e809fbacc8f, type: 2}
   - {fileID: 11400000, guid: 7a409d660897ce54fa0d30d19158dc43, type: 2}
   - {fileID: 11400000, guid: 3c40d482794784243a1ba51be9bee91b, type: 2}
+  - {fileID: 11400000, guid: fb273c7e130dc2447a93e28220d1e7df, type: 2}
+  - {fileID: 11400000, guid: 76fdc5ee9275d084c874949244d9ed71, type: 2}
 --- !u!1 &1435405925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,7 +3076,7 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 20, y: 20}
-  m_Constraint: 0
+  m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!114 &1762737825
 MonoBehaviour:

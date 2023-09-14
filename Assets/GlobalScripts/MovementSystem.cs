@@ -22,6 +22,8 @@ namespace TowerDefense
         public bool IsActive { get; set; }
         public bool IsTurbo { get; set; }
 
+        public float Speed { get => _speed; set => _speed = value; }
+
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();

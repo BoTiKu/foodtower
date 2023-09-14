@@ -48,4 +48,4 @@ MonoBehaviour:
       DelaySpawnMob: 0.5
       Count: 1
   Lifes: 20
-  StartCountMoney: 250
+  StartCountMoney: 500
