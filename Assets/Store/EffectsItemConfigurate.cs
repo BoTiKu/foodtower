@@ -14,6 +14,7 @@ namespace TowerDefense
         public virtual void Execute()
         {
             LevelController.Instance.WithdrawMoney(Cost);
+            AudioController.Instance.PlaySuccess();
         }
     }
 
