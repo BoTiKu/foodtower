@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Freeze Effect Item Configuration
   m_EditorClassIdentifier: 
   Name: "\u0421\u043E\u043D\u043D\u044B\u0439 \u0434\u043E\u0436\u0434\u044C"
+  Description: "\u0423\u0441\u044B\u043F\u043B\u0435\u0442 \u0432\u0441\u0435\u0445
+    \u0436\u0438\u0432\u043E\u0442\u043D\u044B\u0445 \u043D\u0430 5 \u0441\u0435\u043A\u0443\u043D\u0434."
   Icon: {fileID: 21300000, guid: 4b6ead5592bac7444b47b3d0dfd03278, type: 3}
   Cost: 50
   ActiveTime: 5

@@ -441,3 +441,5 @@ MonoBehaviour:
   _icon: {fileID: 1276271794116654615}
   _title: {fileID: 1276271794563615470}
   _cost: {fileID: 1276271794543519791}
+  _toolTipOffsetY: 2.5
+  _toolTipOffsetX: -3

@@ -84,10 +84,12 @@ namespace TowerDefense
                     CurrentLifes = 0;
                     GameOver();
                 }
-                return;
+            }
+            else
+            {
+                Money += mob.GivedMoney;
             }
 
-            Money += mob.GivedMoney;
             _spawnedMobs.Remove(mob);
             Destroy(mob.gameObject);
             NextRount();

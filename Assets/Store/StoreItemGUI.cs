@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace TowerDefense
 {
-    public class StoreItemGUI : MonoBehaviour, IPointerDownHandler
+    public class StoreItemGUI : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
         private Image _icon;
@@ -14,6 +14,12 @@ namespace TowerDefense
         [SerializeField]
         private TMP_Text _cost;
 
+        [SerializeField]
+        private float _toolTipOffsetY = 2.5f;
+        [SerializeField]
+        private float _toolTipOffsetX = 5;
+
+        private Camera _camera;
         private ItemConfiguration _data;
 
         public void OnPointerDown(PointerEventData eventData)
@@ -32,12 +38,30 @@ namespace TowerDefense
                 (_data as EffectsItemConfigurate)?.Execute();
         }
 
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Vector3 position = transform.position;
+            position.y += _toolTipOffsetY;
+            position.x += _toolTipOffsetX;
+            ModelWindow.Instance.ShowToolTip(_data.Description, position);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            ModelWindow.Instance.CloseToolTip();
+        }
+
         public void SetData(ItemConfiguration data)
         {
             _data = data;
             _icon.sprite = data.Icon;
             _title.text = data.Name;
             _cost.text = $"Cost: {data.Cost}";
+        }
+
+        private void Start()
+        {
+            _camera = Camera.main;
         }
     }
 }

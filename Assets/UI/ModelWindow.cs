@@ -16,6 +16,11 @@ namespace TowerDefense
         [SerializeField]
         private TMP_Text _buttonLabel;
 
+        [Header("ToolTip")]
+        [SerializeField]
+        private GameObject _toolTip;
+        [SerializeField]
+        private TMP_Text _toolTipText;
         public void Show(string info, string buttonLabel, UnityAction onClickOkeyButton)
         {
             _okeyButton.onClick.RemoveAllListeners();
@@ -27,6 +32,15 @@ namespace TowerDefense
 
             _window.SetActive(true);
         }
+
+        public void ShowToolTip(string title, Vector3 position)
+        {
+            _toolTip.transform.position = position;
+            _toolTipText.text = title;
+            _toolTip.SetActive(true);
+        }
+
+        public void CloseToolTip() => _toolTip.SetActive(false);
 
         public void Close() => _window.SetActive(false);
     }

@@ -1,17 +1,37 @@
 using UnityEngine;
 using System;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 
 namespace TowerDefense
 {
-    public interface IUpgradebleFoodTower
+    public interface IUpgradebleTower
     {
-        FoodTowerUpgradeConfiguration UpgradeConfiguration { get; }
+        event Action<Tower> OnUpgrade;
         UpgradeLevel CurrentUpgradeLevel { get; }
         int LevelUpgrade { get; }
+        int TotalUpgrades { get; }
         void LevelUp();
+        UpgradeLevel TakeUpgrade(int index);
+    }
+
+    public interface IUpgradebleFoodTower : IUpgradebleTower
+    {
+        FoodTowerUpgradeConfiguration UpgradeConfiguration { get; }
+    }
+
+    public interface IUpgradebleSupportTower : IUpgradebleTower
+    {
+        SupportTowerUpgradeConfiguration UpgradeConfiguration { get; }
+    }
+
+    [Serializable]
+    public class UpgradeLevel
+    {
+        public int CostToUpp;
+        public string Description;
+        public Sprite Icon;
+        public string Name;
     }
 
     public class TowerUpgradeController : MonoSingleton<TowerUpgradeController>
@@ -31,9 +51,9 @@ namespace TowerDefense
         [SerializeField]
         protected WindowStructure _windowStructure;
 
-        protected IUpgradebleFoodTower _target;
+        protected IUpgradebleTower _target;
 
-        public void ShowUpgradeWindow(IUpgradebleFoodTower target)
+        public void ShowUpgradeWindow(IUpgradebleTower target)
         {
             _target = target;
             StoreController.Instance.CloseWindow();
@@ -43,14 +63,14 @@ namespace TowerDefense
 
         protected void SetUpWindow()
         {
-            if(_target.LevelUpgrade + 1 >= _target.UpgradeConfiguration.TotalUpgrades)
+            if(_target.LevelUpgrade + 1 >= _target.TotalUpgrades)
             {
                 ShowMaxUpgrades();
                 return;
             }
 
             var cost = _target.CurrentUpgradeLevel.CostToUpp;
-            var nextUp = _target.UpgradeConfiguration.TakeUpgrae(_target.LevelUpgrade + 1);
+            var nextUp = _target.TakeUpgrade(_target.LevelUpgrade + 1);
             _windowStructure.Icon.sprite = nextUp.Icon;
             _windowStructure.Description.text = nextUp.Description;
             _windowStructure.Name.text = nextUp.Name;
@@ -87,7 +107,7 @@ namespace TowerDefense
             }
 
             AudioController.Instance.PlayFailed();
-            ModelWindow.Instance.Show("Can't Upgrade", $"You need {needMoney} to upgrade", ModelWindow.Instance.Close);
+            ModelWindow.Instance.Show($"Can't Upgrade\nYou need {needMoney} to upgrade", "Okey", ModelWindow.Instance.Close);
         }
 
     }

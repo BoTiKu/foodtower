@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Carrot Tower Item
   m_EditorClassIdentifier: 
   Name: "\u041C\u043E\u0440\u043A\u043E\u0432\u043D\u044F"
+  Description: "\u041A\u043E\u0440\u043C\u0438\u0442 \u043A\u0440\u043E\u043B\u0438\u043A\u043E\u0432.
+    1 \u043C\u043E\u0440\u043A\u043E\u0432\u043A\u043E\u0439 \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443."
   Icon: {fileID: 21300000, guid: d16d326b893491d4e92e6d0302620572, type: 3}
   Cost: 100
   TowerPrefab: {fileID: 381128816793959765, guid: 81b04871928054e4d8bb85b6ca634bc4, type: 3}

@@ -13,7 +13,8 @@ namespace TowerDefense
         private List<Tower> _towers = new();
         private List<Animal> _animals = new();
 
-        public event Action<Animal> OnEnterFirstAnimal; 
+        public event Action<Animal> OnEnterFirstAnimal;
+        public event Action<Tower> OnAttachedNewTower;
 
         public float Radius { get => _collider.radius; set => _collider.radius = value; }
 
@@ -23,7 +24,7 @@ namespace TowerDefense
             if (_animals.Count < 1 || _animals.All(animal => animal.IsFedUp))
                 return false;
 
-            animal = _animals.FirstOrDefault(animal => !animal.IsFedUp && !animal.FullFed);
+            animal = _animals.Find(animal => !animal.IsFedUp && !animal.FullFed);
             return animal != null;
         }
 
@@ -46,6 +47,7 @@ namespace TowerDefense
             if(collision.TryGetComponent(out Tower tower))
             {
                 _towers.Add(tower);
+                OnAttachedNewTower?.Invoke(tower);
             }
             else if(collision.TryGetComponent(out Animal animal))
             {

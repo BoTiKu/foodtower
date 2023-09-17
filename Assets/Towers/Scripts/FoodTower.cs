@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 namespace TowerDefense
 {
@@ -15,16 +16,18 @@ namespace TowerDefense
         public override TowerTypes Type => TowerTypes.Food;
         public FoodTypes FoodType => _foodType;
         public int LevelUpgrade => _currentLevelUpgrade;
-        public UpgradeLevel CurrentUpgradeLevel => UpgradeConfiguration.TakeUpgrae(LevelUpgrade);
-        public FoodTowerUpgradeConfiguration UpgradeConfiguration { get => _upgradeConfiguration; }
+        public int TotalUpgrades => _upgradeConfiguration.TotalUpgrades;
+        public event Action<Tower> OnUpgrade;
+        public UpgradeLevel CurrentUpgradeLevel => UpgradeConfiguration.TakeUpgrade(LevelUpgrade);
+        public FoodTowerUpgradeConfiguration UpgradeConfiguration => _upgradeConfiguration;
 
         protected override void Start()
         {
             base.Start();
-            SetData(UpgradeConfiguration.TakeUpgrae(LevelUpgrade));
+            SetData(UpgradeConfiguration.TakeUpgrade(LevelUpgrade) as FoodTowerUpgrade);
         }
 
-        private void SetData(UpgradeLevel data)
+        private void SetData(FoodTowerUpgrade data)
         {
             _damage = data.Damage;
             _speedAttack = data.AttackSpeed;
@@ -32,10 +35,13 @@ namespace TowerDefense
             _detectArea.Radius = data.AttackRange;
         }
 
+        public void EncencingDamage(int count) => _damage = count;
+
         public void LevelUp()
         {
             _currentLevelUpgrade++;
-            SetData(UpgradeConfiguration.TakeUpgrae(LevelUpgrade));
+            SetData(UpgradeConfiguration.TakeUpgrade(LevelUpgrade) as FoodTowerUpgrade);
+            OnUpgrade?.Invoke(this);
         }
 
         public override void OnPointerClick(PointerEventData eventData)
@@ -50,5 +56,7 @@ namespace TowerDefense
             projectiles.Configurate(this, _target);
             return projectiles;
         }
+
+        public UpgradeLevel TakeUpgrade(int index) => _upgradeConfiguration.TakeUpgrade(index);
     }
 }

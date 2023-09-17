@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Hay Tower Item
   m_EditorClassIdentifier: 
   Name: "\u0421\u0435\u043D\u043E\u0432\u0430\u043B"
+  Description: "\u041A\u043E\u0440\u043C\u0438\u0442 \u043A\u043E\u0440\u043E\u0432.
+    1 \u0441\u0435\u043D\u043E \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443."
   Icon: {fileID: 21300000, guid: fba4811a09676684d9d36e3407b899f8, type: 3}
   Cost: 100
   TowerPrefab: {fileID: 6407409848370055618, guid: 8b28180574283314c9b106b3e1f1b2d6, type: 3}
